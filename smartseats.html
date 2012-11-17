@@ -43,6 +43,9 @@
 	    });
 
 	    $(document).bind('pageinit', function() {
+	    	if(console) {
+	    		 console.log("pangeinit is now bound");
+	    	}
 	    	$( "#sortable" ).sortable();
 	    	$( "#sortable" ).disableSelection();
 	    	$( "#sortable" ).bind( "sortstop", function(event, ui) {
