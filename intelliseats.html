@@ -8,15 +8,13 @@
   <title>Intelliseats - drag and drop seating chart</title> 
   <meta name="author" content="forresst" />
   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+  <link href='http://fonts.googleapis.com/css?family=Inder' rel='stylesheet' type='text/css'>
   <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
   <script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
   <script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
   <script src="js/jquery.ui.touch-punch.min.js"></script>
+  <script src="js/jquery.sparkline.js"></script>
   <script>
-  var _gaq = _gaq || [];
-  $(document).ready(function(e) {
-  
-    }); 
 
   $(document).bind('pageinit', function() {
     $( "#sortable" ).sortable();
@@ -25,19 +23,43 @@
       $('#sortable').listview('refresh');
     });
   });
+
+  $(function() {
+   /** This code runs when everything has been loaded on the page */
+          /* Inline sparklines take their values from the contents of the tag */
+          $('.inlinesparkline').sparkline(); 
+
+          $("#sparkline").sparkline([5,6,7,2,0,4,2,4], {
+            type: 'bar',
+            barWidth: 8
+          });
+
+          /* Sparklines can also take their values from the first argument 
+          passed to the sparkline() function 
+          var myvalues = [10,8,5,7,4,4,1];
+          $('.dynamicsparkline').sparkline(myvalues);*/
+  });
   </script>  
   <style>
     #sortable { list-style-type: none; margin: 0; padding: 0; width: 960px; height: 100%; }
     #sortable li { margin: 3px 3px 3px 0; padding: 1px; float: left; width: 160px; height: 180px; font-size: 1em; text-align: center; border: 1px #dddddd solid;}
+
+    .studentname {
+      font-family: 'Inder', sans-serif;
+    }
+
+    .headshot {
+      padding-top: 1em;
+    }
     </style>
 </head>
 <body> 
 <div data-role="page" id="one">
-  <div data-role="header" data-theme="d">
+  <div data-role="header" data-theme="a">
     <h1>IntelliSeats</h1>
   </div>
 
-  <div data-role="content" data-theme="c">
+  <div data-role="content" data-theme="a">
   
   <h2>Seating Chart</h2>
     <!-- ul data-inset="true" data-theme="d" id="sortable">
@@ -51,35 +73,74 @@
   </div -->
 
   <ul id="sortable">
-    <li class="ui-state-default">
-      <img src="http://farm4.staticflickr.com/3250/3584434960_b9bd31f6fa_s.jpg"/>
-      <h3>Christa</h3> Smith
+    <li class="ui-state-default" data-shadow="true" class="ui-shadow">
+      <img class="headshot" src="http://farm4.staticflickr.com/3250/3584434960_b9bd31f6fa_s.jpg"/>
+      <span class="studentname"><h3>Christa</h3> Smith</span>
     </li>
     <li class="ui-state-default">
-      <img src="http://farm3.staticflickr.com/2430/3900271780_e92618322b_s.jpg"/>
-      <h3>Susy</h3> Brooks
+      <img class="headshot" src="http://farm3.staticflickr.com/2430/3900271780_e92618322b_s.jpg"/>
+      <span class="studentname"><h3>Susy</h3> Brooks
     </li>
     <li class="ui-state-default">
-      <img src="http://farm4.staticflickr.com/3120/3113708093_175a7878b9_s.jpg"/>
-      <h3>Ingrid</h3> Churchill
+      <img class="headshot" src="http://farm4.staticflickr.com/3120/3113708093_175a7878b9_s.jpg"/>
+      <span class="studentname"><h3>Ingrid</h3> Churchill
     </li>
     <li class="ui-state-default">
-      <img src="http://farm3.staticflickr.com/2518/4060347387_67440c3b0d_s.jpg"/>
-      <h3>Mary</h3> De La Rosa
+      <img class="headshot" src="http://farm3.staticflickr.com/2518/4060347387_67440c3b0d_s.jpg"/>
+      <span class="studentname"><h3>Mary</h3> De La Rosa
     </li>
-    <li class="ui-state-default">5</li>
-    <li class="ui-state-default">6</li>
-    <li class="ui-state-default">7</li>
-    <li class="ui-state-default">8</li>
-    <li class="ui-state-default">9</li>
-    <li class="ui-state-default">10</li>
+    <li class="ui-state-default">
+      <img class="headshot" src="http://farm4.staticflickr.com/3545/3836858439_5e54e9ff98_s.jpg"/>
+      <span class="studentname"><h3>Cro</h3> Magnon
+    </li>
+    <li class="ui-state-default">
+      <a href="#two">
+      <img class="headshot" src="http://farm5.staticflickr.com/4071/4577900589_eb81d862c7_s.jpg"/>
+      <span class="studentname"><h3>Jonny</h3> Troublemaker
+      </a>
+    </li>
+    <li class="ui-state-default">
+    </li>
+    <li class="ui-state-default">
+    </li>
+    <li class="ui-state-default">
+    </li>
+    <li class="ui-state-default">
+    </li>
     <li class="ui-state-default">11</li>
     <li class="ui-state-default">12</li>
   </ul>
   </div> <!-- end of content -->
-   <div data-role="footer" data-theme="d">
+   <div data-role="footer" data-theme="a">
       <h4>The A* Team (Chris, too)</h4>
     </div><!-- /footer -->
 </div> <!-- end of page -->
+
+<!-- Start of second page: #two -->
+<div data-role="page" id="two" data-theme="a">
+
+  <div data-role="header">
+    <h1>Christa Smith</h1>
+  </div><!-- /header -->
+
+  <div data-role="content" data-theme="a">  
+    <h2>Jonny Troublemaker</h2>
+    <p>I have an id of "two" on my page container. I'm the second page container in this multi-page template.</p> 
+    <p><img src="http://farm5.staticflickr.com/4071/4577900589_eb81d862c7_n.jpg"/></p>
+    <p>Recent Grades: <span id="sparkline" class="inlinesparkline"></span></p>
+    <p>Here are some notes from the last time we interacted with Jonny:
+      <ul>
+        <li>difficult to talk to</li>
+        <li>likes chocolate</li>
+        <li>need to discuss recent quiz with him</li>
+      </ul> 
+    <p><a href="#one" data-direction="reverse" data-role="button" data-theme="b">Seating View</a></p> 
+    
+  </div><!-- /content -->
+  
+  <div data-role="footer" data-theme="a">
+    <h4>Page Footer</h4>
+  </div><!-- /footer -->
+</div><!-- /page two -->
 </body>
 </html>
