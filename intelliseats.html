@@ -27,12 +27,12 @@
   });
   </script>  
   <style>
-    #sortable { list-style-type: none; margin: 0; padding: 0; width: 450px; }
-    #sortable li { margin: 3px 3px 3px 0; padding: 1px; float: left; width: 100px; height: 90px; font-size: 4em; text-align: center; }
+    #sortable { list-style-type: none; margin: 0; padding: 0; width: 960px; height: 100%; }
+    #sortable li { margin: 3px 3px 3px 0; padding: 1px; float: left; width: 160px; height: 180px; font-size: 1em; text-align: center; border: 1px #dddddd solid;}
     </style>
 </head>
 <body> 
-<div>
+<div data-role="page" id="one">
   <div data-role="header" data-theme="d">
     <h1>IntelliSeats</h1>
   </div>
@@ -51,10 +51,22 @@
   </div -->
 
   <ul id="sortable">
-    <li class="ui-state-default"><img src="http://farm4.staticflickr.com/3250/3584434960_b9bd31f6fa_s.jpg"/></li>
-    <li class="ui-state-default">2</li>
-    <li class="ui-state-default">3</li>
-    <li class="ui-state-default">4</li>
+    <li class="ui-state-default">
+      <img src="http://farm4.staticflickr.com/3250/3584434960_b9bd31f6fa_s.jpg"/>
+      <h3>Christa</h3> Smith
+    </li>
+    <li class="ui-state-default">
+      <img src="http://farm3.staticflickr.com/2430/3900271780_e92618322b_s.jpg"/>
+      <h3>Susy</h3> Brooks
+    </li>
+    <li class="ui-state-default">
+      <img src="http://farm4.staticflickr.com/3120/3113708093_175a7878b9_s.jpg"/>
+      <h3>Ingrid</h3> Churchill
+    </li>
+    <li class="ui-state-default">
+      <img src="http://farm3.staticflickr.com/2518/4060347387_67440c3b0d_s.jpg"/>
+      <h3>Mary</h3> De La Rosa
+    </li>
     <li class="ui-state-default">5</li>
     <li class="ui-state-default">6</li>
     <li class="ui-state-default">7</li>
@@ -63,7 +75,11 @@
     <li class="ui-state-default">10</li>
     <li class="ui-state-default">11</li>
     <li class="ui-state-default">12</li>
-</ul>
-</div>
+  </ul>
+  </div> <!-- end of content -->
+   <div data-role="footer" data-theme="d">
+      <h4>The A* Team (Chris, too)</h4>
+    </div><!-- /footer -->
+</div> <!-- end of page -->
 </body>
 </html>
