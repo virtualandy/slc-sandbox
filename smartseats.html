@@ -6,8 +6,27 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1"> 
 		<link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />
 		<script src="js/jquery-1.8.2.min.js"></script>
+		<script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
 		<script src="js/jquery.mobile-1.2.0.min.js"></script>
 		<script src="js/jquery.ui.touch-punch.min.js"></script>
+
+		<style>
+		  .ui-icon-loading {
+			    background: url(http://code.jquery.com/mobile/1.1.0-rc.1/images/ajax-loader.png);
+			    background-size: 46px 46px;
+			    width:46px;
+			    height:46px;
+			    -webkit-transform: rotate(360deg);
+			    -webkit-animation-name: spin;
+			    -webkit-animation-duration: 1s;
+			    -webkit-animation-iteration-count:  infinite;
+			    -webkit-animation-timing-function: linear;
+			}
+			@-webkit-keyframes spin {
+			    from {-webkit-transform: rotate(0deg);}
+			    to {-webkit-transform: rotate(360deg);}
+			}
+    </style>
 	</head>
 	<body>
 	
@@ -37,21 +56,23 @@
 	  <script type="text/javascript">
 	    $(function() {
 
+	    	$(document).bind('pageinit', function() {
+	    	
+		    	console.log("pangeinit is now bound");
+		    	
+		    	$( "#sortable" ).sortable();
+		    	$( "#sortable" ).disableSelection();
+		    	$( "#sortable" ).bind( "sortstop", function(event, ui) {
+		        $('#sortable').listview('refresh');
+	    	  });
+		    });
+
 	        $("[bg='a']").click(function() {
 	        	console.log("you clicked on A");
 	        });
 	    });
 
-	    $(document).bind('pageinit', function() {
-	    	if(console) {
-	    		 console.log("pangeinit is now bound");
-	    	}
-	    	$( "#sortable" ).sortable();
-	    	$( "#sortable" ).disableSelection();
-	    	$( "#sortable" ).bind( "sortstop", function(event, ui) {
-	        $('#sortable').listview('refresh');
-    	  });
-	    });
+	    
 
 		</script>
 	</body>
