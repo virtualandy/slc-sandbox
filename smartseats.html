@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
 		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+		<script src="jquery.ui.touch-punch.min.js"></script>
 	</head>
 	<body>
 	
@@ -53,7 +54,7 @@
             $( "#sortable" ).disableSelection();
             <!-- Refresh list to the end of sort to have a correct display -->
             $( "#sortable" ).bind( "sortstop", function(event, ui) {
-              $('#sortable').listview('refresh');
+            $('#sortable').listview('refresh');
             });
           });
 
